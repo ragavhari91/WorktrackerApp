@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">WorktrackerApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Button Constants starts here -->
+    <string name="LOGIN_BUTTON">Login</string>
+    <!-- Button Constants ends here -->
+
+
+    <!-- Placeholder constants starts here -->
+    <string name="LOGIN_LOGINID_PLACEHOLDER">Enter Email</string>
+    <string name="LOGIN_PASSWORD_PLACEHOLDER">Enter Password</string>
+    <!-- Placeholder constants ends here -->
+
+
+    <!-- Text view constants starts here -->
+    <string name="FORGOT_PASSWORD_EDITTEXT">Forgot Your Password?</string>
+    <!-- Text view constants ends here -->
+</resources>
