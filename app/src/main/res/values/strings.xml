@@ -4,18 +4,33 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Heading constants starts here -->
+    <string name="LOGIN_FORM_HEADING">Sign in</string>
+    <!-- Heading constants ends here  -->
+
     <!-- Button Constants starts here -->
-    <string name="LOGIN_BUTTON">Login</string>
+    <string name="LOGIN_SUBMIT_BUTTON">Login</string>
+    <string name="REGISTRATION_SUBMIT_BUTTON">Register</string>
+    <string name="FORGOTPASSWORD_SUBMIT_BUTTON">Submit</string>
     <!-- Button Constants ends here -->
 
 
     <!-- Placeholder constants starts here -->
     <string name="LOGIN_LOGINID_PLACEHOLDER">Enter Email</string>
     <string name="LOGIN_PASSWORD_PLACEHOLDER">Enter Password</string>
+    <string name="REGISTRATION_FIRSTNAME_PLACEHOLDER">Enter Firstname</string>
+    <string name="REGISTRATION_LASTNAME_PLACEHOLDER">Enter Lastname</string>
+    <string name="REGISTRATION_MOBILENO_PLACEHOLDER">Enter Mobileno</string>
+    <string name="REGISTRATION_EMAIL_PLACEHOLDER">Enter Email</string>
+    <string name="REGISTRATION_PASSWORD_PLACEHOLDER">Enter Password</string>
+    <string name="REGISTRATION_REENTER_PASSWORD_PLACEHOLDER">Re Type Password</string>
+    <string name="FORGOTPASSWORD_EMAIL_PLACEHOLDER">Enter Email</string>
     <!-- Placeholder constants ends here -->
 
 
     <!-- Text view constants starts here -->
-    <string name="FORGOT_PASSWORD_EDITTEXT">Forgot Your Password?</string>
+    <string name="FORGOT_PASSWORD_TEXTVIEW">Forgot Your Password?</string>
+    <string name="title_activity_registration">Registration</string>
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
     <!-- Text view constants ends here -->
 </resources>
