@@ -26,6 +26,10 @@
             android:name=".ForgotPasswordActivity"
             android:label="@string/title_activity_forgot_password" >
         </activity>
+        <activity
+            android:name=".dashboard"
+            android:label="@string/title_activity_dashboard" >
+        </activity>
     </application>
 
 </manifest>
