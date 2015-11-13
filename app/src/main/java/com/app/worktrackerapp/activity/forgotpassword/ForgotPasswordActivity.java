@@ -1,23 +1,25 @@
-package com.app.worktrackerapp;
+package com.app.worktrackerapp.activity.forgotpassword;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.app.worktrackerapp.R;
 
-public class RegistrationActivity extends ActionBarActivity {
+
+public class ForgotPasswordActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_forgot_password);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_registration, menu);
+        getMenuInflater().inflate(R.menu.menu_forgot_password, menu);
         return true;
     }
 
