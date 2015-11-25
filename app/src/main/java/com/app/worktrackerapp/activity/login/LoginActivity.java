@@ -1,7 +1,7 @@
 package com.app.worktrackerapp.activity.login;
 
 import android.app.ProgressDialog;
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,18 +13,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.worktrackerapp.R;
+import com.app.worktrackerapp.activity.dashboard.DashboardActivity;
 import com.app.worktrackerapp.constants.ServiceURLConstants;
 import com.app.worktrackerapp.model.User;
-import com.app.worktrackerapp.utils.ApplicationController;
-import com.app.worktrackerapp.utils.VolleyNetworkService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,7 +48,6 @@ public class LoginActivity extends ActionBarActivity  {
         Button b = (Button) findViewById(R.id.button_login_submit);
         b.setOnClickListener(new View.OnClickListener() {
 
-
             @Override
             public void onClick(View v) {
 
@@ -59,8 +55,9 @@ public class LoginActivity extends ActionBarActivity  {
                     EditText login_id = (EditText) findViewById(R.id.editText_login_id);
                     EditText password = (EditText) findViewById(R.id.editText_login_password);
 
-                    user.setUser_email(login_id.toString());
-                    user.setUser_password(password.toString());
+                    user.setUser_email(login_id.getText().toString());
+                    user.setUser_password(password.getText().toString());
+
 
                     new LoginAsyncService(user).BackGroundTask();
             }
@@ -107,27 +104,61 @@ public class LoginActivity extends ActionBarActivity  {
 
     public class LoginAsyncService
     {
-
-
-        User user = new User();
+        User users = new User();
         JSONObject jsonObject;
+
 
 
         public LoginAsyncService(User user) {
 
-            this.user = user;
+            users = user;
         }
 
         public void BackGroundTask() {
             showDialog();
             String url = ServiceURLConstants.HOST_URL + ServiceURLConstants.LOGIN_URL;
-            JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, url,
+
+            JSONObject obj = new JSONObject();
+            try {
+                obj.put("login_id", users.getUser_email());
+                obj.put("password", users.getUser_password());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, url,obj,
                     new Response.Listener<JSONObject>() {
                         @Override
-                        public void onResponse(JSONObject response) {
+                        public void onResponse(JSONObject response)
+                        {
+                            Log.d("RESPONSEEEE",response.toString());
                             jsonObject = response;
-                            Log.d("RESPONSE", response.toString());
-                            hideDialog();
+                            try {
+
+                                String status = jsonObject.getString("status");
+                                if(status.equals("Success"))
+                                {
+                                    JSONObject responseObject = new JSONObject(response.toString());
+                                    JSONObject resultObject   =  responseObject.getJSONObject("response");
+                                    //Log.d("RESULTOBJ",resultObject.toString());
+                                    //Gson gson = new Gson();
+                                    //User user = gson.fromJson(resultObject.toString(),User.class);
+                                    hideDialog();
+                                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                                    intent.putExtra("USERDETAILS",resultObject.toString());
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Log.d("STATUSFAILURE",status);
+                                    Toast.makeText(getApplicationContext(),"Failure",Toast.LENGTH_LONG).show();
+                                    hideDialog();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                         }
                     },
                     new Response.ErrorListener() {
@@ -138,15 +169,7 @@ public class LoginActivity extends ActionBarActivity  {
                         }
                     }) {
                 @Override
-                public Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("login_id", user.getUser_email());
-                    params.put("password", user.getUser_password());
-                    return params;
-                }
-
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
+                public Map<String, String> getHeaders()  {
                     HashMap<String, String> headers = new HashMap<String, String>();
                     headers.put("Content-Type", "application/json");
                     return headers;
@@ -154,10 +177,7 @@ public class LoginActivity extends ActionBarActivity  {
 
             };
             Volley.newRequestQueue(LoginActivity.this).add(req);
-
-
         }
-
 
     }
 

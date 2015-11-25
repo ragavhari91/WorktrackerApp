@@ -13,8 +13,24 @@ public class User
     private String user_email;
     private String user_password;
     private String user_mobile;
-    private Role user_role;
-    private Status user_status;
+    private String user_role;
+    private String user_status;
+
+    public String getUser_role() {
+        return user_role;
+    }
+
+    public void setUser_role(String user_role) {
+        this.user_role = user_role;
+    }
+
+    public String getUser_status() {
+        return user_status;
+    }
+
+    public void setUser_status(String user_status) {
+        this.user_status = user_status;
+    }
 
     public int getId() {
         return id;
@@ -80,19 +96,5 @@ public class User
         this.user_mobile = user_mobile;
     }
 
-    public Role getUser_role() {
-        return user_role;
-    }
 
-    public void setUser_role(Role user_role) {
-        this.user_role = user_role;
-    }
-
-    public Status getUser_status() {
-        return user_status;
-    }
-
-    public void setUser_status(Status user_status) {
-        this.user_status = user_status;
-    }
 }
