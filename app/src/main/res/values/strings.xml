@@ -43,4 +43,18 @@
 
     <string name="action_example">Example action</string>
     <!-- Text view constants ends here -->
+
+
+    <!-- Navigation Menu contents starts here -->
+    <string name="nav_home">Home</string>
+
+    <string name="nav_category_projects">Project Related</string>
+    <string name="nav_manage_projects">Manage Projects</string>
+    <string name="nav_add_project">Create Project</string>
+
+    <string name="nav_category_issues">Issue Related</string>
+    <string name="nav_manage_issues">Manage Issues</string>
+    <string name="nav_add_issue">Add Issue</string>
+    <!-- Navigation Menu contents ends here -->
+
 </resources>

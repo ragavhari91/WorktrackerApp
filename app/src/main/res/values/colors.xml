@@ -3,4 +3,6 @@
     <color name="background_color">#2c3e50</color>
     <color name="textbox_background">#ECF0F1</color>
     <color name="form_button_background">#E4F1FE</color>
+    <color name="PrimaryColor">#ff1b6bae</color>
+    <color name="PrimaryDarkColor">#ff134a88</color>
 </resources>

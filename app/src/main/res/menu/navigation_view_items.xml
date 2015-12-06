@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_48dp"
+            android:title="@string/nav_home" />
+    </group>
+
+    <item
+        android:id="@+id/nav_category_projects"
+        android:title="@string/nav_category_projects">
+        <menu>
+            <item
+                android:id="@+id/nav_manage_projects"
+                android:icon="@drawable/ic_briefcase_black_48dp"
+                android:title="@string/nav_manage_projects"/>
+            <item
+                android:id="@+id/nav_add_project"
+                android:icon="@drawable/ic_plus_box_black_48dp"
+                android:title="@string/nav_add_project"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_category_issues"
+        android:title="@string/nav_category_issues">
+        <menu>
+            <item
+                android:id="@+id/nav_manage_issues"
+                android:icon="@drawable/ic_briefcase_black_48dp"
+                android:title="@string/nav_manage_issues"/>
+            <item
+                android:id="@+id/nav_add_issue"
+                android:icon="@drawable/ic_bug_black_48dp"
+                android:title="@string/nav_add_issue"/>
+        </menu>
+    </item>
+</menu>
